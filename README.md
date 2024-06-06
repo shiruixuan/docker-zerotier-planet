@@ -116,12 +116,12 @@ service docker start
 ## 3.2：下载项目源码
 官方地址
 ```
-git clone https://github.com/xubiaolin/docker-zerotier-planet.git
+git clone https://github.com/shiruixuan/docker-zerotier-planet.git --depth 1
 ```
 
 加速地址
 ```
-git clone https://ghproxy.imoyuapp.win/https://github.com/xubiaolin/docker-zerotier-planet.git
+git clone https://ghproxy.imoyuapp.win/https://github.com/shiruixuan/docker-zerotier-planet.git
 ```
 
 ## 3.3：执行安装脚本
@@ -371,7 +371,7 @@ version: '3'
 
 services:
   myztplanet:
-    image: xubiaolin/zerotier-planet:latest
+    image: shiruixuan/zerotier-planet:latest
     container_name: ztplanet
     ports:
       - 9994:9994

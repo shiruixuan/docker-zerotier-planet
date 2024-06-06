@@ -9,17 +9,13 @@ ADD ./patch/entrypoint.sh /app/entrypoint.sh
 ADD ./patch/http_server.js /app/http_server.js
 ADD ./patch/mkworld_custom.cpp /app/patch/mkworld_custom.cpp
 
-# init tool
 RUN set -x\
     && apk update\
     && apk add --no-cache git python3 npm make g++ linux-headers curl pkgconfig openssl-dev  jq build-base  gcc \
-    && echo "env prepare success!"
-
-# make zerotier-one
-RUN set -x\
+    && echo "env prepare success!"\
     && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y\
     && source "$HOME/.cargo/env"\
-    && git clone https://github.com/zerotier/ZeroTierOne.git\
+    && git clone https://github.com/shiruixuan/ZeroTierOne.git\
     && cd ZeroTierOne\
     && git checkout ${TAG}\
     && echo "切换到tag:${TAG}"\
@@ -36,15 +32,10 @@ RUN set -x\
     && mv mkworld_custom.cpp mkworld.cpp \
     && sh build.sh \
     && mv mkworld /var/lib/zerotier-one\
-    && echo "mkworld build success!"
-
-
-
-#make ztncui 
-RUN set -x \
+    && echo "mkworld build success!"\
     && mkdir /app -p \
     &&  cd /app \
-    && git clone --progress https://ghproxy.imoyuapp.win/https://github.com/key-networks/ztncui.git\
+    && git clone --progress https://github.com/shiruixuan/ztncui.git\
     && cd /app/ztncui/src \
     && npm config set registry https://registry.npmmirror.com\
     && npm install -g node-gyp\
