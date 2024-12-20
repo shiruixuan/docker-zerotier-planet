@@ -1,13 +1,3 @@
-# 交流群
-
-**Telegram**
-- TG交流群：https://t.me/+JduuWfhSEPdlNDk1
-
-**QQ Group**
-- 1群（已满）：692635772 
-- 2群（已满）：785620313
-- 3群：316239544
-
 # 功能特性
 - ✅ 支持 Linux/AMD64、Linux/ARM64 架构
 - 🐳 Docker 容器化部署
@@ -59,30 +49,10 @@
 - [捐助和支持](#捐助和支持)
 - [鸣谢](#鸣谢)
 
-# 0: 广告
-**寻找便捷的解决方案？**
-
-我们提供专业的托管服务：
-- 免费试用3天
-- 年费仅需99￥
-- 高速带宽：300Mbit
-- 流量政策：
-  - 每月100G转发流量
-  - P2P连接后不计流量
-  - 超出后每10元100G
-- 优质线路：宁波电信机房
-- 联系方式：
-  - Telegram：[https://t.me/uxkram](https://t.me/uxkram)
-  - 或加入QQ群咨询群主
 
 测速图如下：
 
 <img src="./asserts/nb-speed-test.png" width = "800" height = "" alt="图片名称" align=center />
-
-
-微信公众号：欢迎关注公众号获取最新动态和技术分享
-
-<img src="./asserts/wx_qrcode_pub.jpg" width = "300" height = "" alt="图片名称" align=center />
 
 # 1：ZeroTier 介绍
 
@@ -184,12 +154,12 @@ sudo systemctl restart docker
 ## 3.2：下载项目源码
 官方地址
 ```
-git clone https://github.com/xubiaolin/docker-zerotier-planet.git
+git clone https://github.com/shiruixuan/docker-zerotier-planet.git --depth 1
 ```
 
 加速地址
 ```
-git clone https://ghproxy.imoyuapp.win/https://github.com/xubiaolin/docker-zerotier-planet.git
+git clone https://ghproxy.imoyuapp.win/https://github.com/shiruixuan/docker-zerotier-planet.git --depth 1
 ```
 
 ## 3.3：执行安装脚本
@@ -463,7 +433,7 @@ version: '3'
 
 services:
   myztplanet:
-    image: xubiaolin/zerotier-planet:latest
+    image: shiruixuan/zerotier-planet:latest
     container_name: ztplanet
     ports:
       - 9994:9994
