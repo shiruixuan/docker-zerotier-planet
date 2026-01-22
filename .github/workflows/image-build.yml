@@ -18,7 +18,7 @@ jobs:
       - name: Get latest Tailscale tag
         id: get_tag
         run: |
-          LATEST_TAG=$(curl -s https://api.github.com/repos/zerotier/ZeroTierOne/tags | jq -r '.[0].name')
+          LATEST_TAG=$(curl -s "https://api.github.com/repos/shiruixuan/ZeroTierOne/tags" | jq -r '.[].name' | grep -E "^[0-9]+\.[0-9]+\.[0-9]+$" | sort -V | tail -n 1)
           echo "LATEST_TAG=${LATEST_TAG}" >> $GITHUB_ENV
           echo "latest_tag=${LATEST_TAG}" >> $GITHUB_OUTPUT
 
@@ -37,7 +37,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/zerotier-planet-test:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/zerotier-planet-test:${{ steps.get_tag.outputs.latest_tag }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/zerotier-planet:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/zerotier-planet:${{ steps.get_tag.outputs.latest_tag }}
           build-args: |
             TAG=${{ steps.get_tag.outputs.latest_tag }} 

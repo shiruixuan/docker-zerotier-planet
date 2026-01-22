@@ -19,7 +19,7 @@ RUN set -x\
 RUN set -x\
     && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y\
     && source "$HOME/.cargo/env"\
-    && git clone https://github.com/zerotier/ZeroTierOne.git\
+    && git clone https://github.com/shiruixuan/ZeroTierOne.git\
     && cd ZeroTierOne\
     && git checkout ${TAG}\
     && echo "切换到tag:${TAG}"\
@@ -46,7 +46,7 @@ RUN set -x\
 RUN set -x \
     && mkdir /app -p \
     &&  cd /app \
-    && git clone --progress https://github.com/key-networks/ztncui.git\
+    && git clone --progress https://github.com/shiruixuan/ztncui.git --depth 1\
     && cd /app/ztncui/src \
     && npm config set registry https://registry.npmmirror.com\
     && npm install -g node-gyp\
@@ -59,7 +59,7 @@ WORKDIR /app
 ENV IP_ADDR4=''
 ENV IP_ADDR6=''
 
-ENV ZT_PORT=9994
+ENV ZT_PORT=9993
 ENV API_PORT=3443
 ENV FILE_SERVER_PORT=3000
 
