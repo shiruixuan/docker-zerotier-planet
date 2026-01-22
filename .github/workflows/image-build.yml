@@ -5,7 +5,7 @@ on:
     branches:
       - master  # 当 master 分支有推送时触发
   schedule:
-    - cron: '0 */6 * * *'  # 每6小时检查一次
+    # - cron: '0 */6 * * *'  # 每6小时检查一次
   workflow_dispatch:  # 允许手动触发
 
 jobs:
